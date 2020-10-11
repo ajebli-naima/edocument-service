@@ -3,9 +3,7 @@ phases:
   install:
     commands:
       - npm install
-  build:
-    commands:
-      - aws s3 sync . "s3://edocument1" --exclude .gitignore --exclude buildspec.yml --exclude .git/
   post_build:
     commands:
+       - aws s3 sync . s3://edocument1 --exclude .gitignore --exclude buildspec.yml --exclude .git/
        - aws cloudfront create-invalidation --distribution-id E21YSL85YK05FF --paths '/*'
