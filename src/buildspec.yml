@@ -3,6 +3,8 @@ phases:
   install:
     commands:
       - npm install
+    runtime-versions:
+      nodejs: 12
   pre_build:
    commands:
      - echo "pre_build step"
